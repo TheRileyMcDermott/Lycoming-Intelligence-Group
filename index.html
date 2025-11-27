@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lycoming Intelligence Group</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0b0b;
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  a {
+    text-decoration: none;
+    color: #ff9900;
+  }
+
+  header {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: 2px;
+  }
+
+  nav {
+    margin-top: 20px;
+  }
+
+  nav a {
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: #00ff99;
+  }
+
+  section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #ff9900;
+  }
+
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .service {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
+    text-align: center;
+    flex: 1 1 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .service:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 40px rgba(0, 255, 153, 0.6);
+  }
+
+  footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+
+  footer a {
+    color: #ff9900;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="hero-text"></h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>Lycoming Intelligence Group provides professional intelligence, research, and security consulting services to businesses and organizations. Our team specializes in analysis, threat assessment, and strategic planning to ensure your operations remain secure and informed.</p>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="service">
+      <h3>Intelligence Analysis</h3>
+      <p>We provide comprehensive intelligence reports tailored to your operational needs.</p>
+    </div>
+    <div class="service">
+      <h3>Security Consulting</h3>
+      <p>Our experts help you assess risks and implement effective security measures.</p>
+    </div>
+    <div class="service">
+      <h3>Civilian Police Intelligence Support</h3>
+      <p>We work with police departments in a civilian capacity to produce actionable intelligence.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Lycoming Intelligence Group | <a href="mailto:rileymcdermott1111@gmail.com">rileymcdermott1111@gmail.com</a></p>
+</footer>
+
+<script>
+  // Hero typing effect
+  const heroText = "Lycoming Intelligence Group";
+  const heroElement = document.getElementById("hero-text");
+  let index = 0;
+  function typeHero() {
+    if(index < heroText.length) {
+      heroElement.textContent += heroText.charAt(index);
+      index++;
+      setTimeout(typeHero, 100);
+    }
+  }
+  typeHero();
+
+  // Scroll fade-in effect
+  const sections = document.querySelectorAll("section");
+  window.addEventListener("scroll", () => {
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if(top < windowHeight - 100){
+        section.classList.add("visible");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
